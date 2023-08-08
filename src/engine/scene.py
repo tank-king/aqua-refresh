@@ -150,7 +150,9 @@ class SceneManager(BaseStructure):
         this = sys.modules[__name__]
         self.menu_references = {i.__name__.lower(): i for i in [getattr(this, j) for j in dir(this)] if
                                 isinstance(i, MetaClass) and type(i) != Scene}
-        path = Path(__file__).parent.parent / 'scenes'
+        # path = Path(__file__).parent.parent / 'scenes'
+        path = os.path.join(BASE_PATH, 'src', 'scenes')
+        # path = os.path.join('src', 'scenes')
         scenes = [i for i in os.listdir(path.__str__()) if i.endswith('.py')]
         sys.path.append(path.__str__())
         for scene in scenes:

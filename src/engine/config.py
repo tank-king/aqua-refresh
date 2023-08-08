@@ -48,6 +48,8 @@ WATER_DEPTH = 150
 
 SCORE_ADD_RATE = 5
 
+BASE_PATH = ''
+
 
 class GAMESTATS:
     MONEY = 0
@@ -117,6 +119,7 @@ class Globals:
 
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     print('running in a PyInstaller bundle')
+    BASE_PATH = sys._MEIPASS
     ASSETS = os.path.join(sys._MEIPASS, ASSETS)
     try:
         import pyi_splash
