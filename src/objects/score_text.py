@@ -8,7 +8,7 @@ class ScoreText(BaseObject):
         self.score = score
         self.sign = '+' if score >= 0 else '-'
         self.alpha = 255
-        self.text = text(f'{self.sign}{self.score}', 50)
+        self.text = text(f' {self.sign}{abs(self.score)}$ ', 45, bg_color='#511309')
         self.anchor = anchor
 
     def update(self, events: list[pygame.event.Event], dt):

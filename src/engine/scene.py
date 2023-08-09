@@ -238,8 +238,8 @@ class SceneManager(BaseStructure):
                 if e.key == pygame.K_r:
                     self.menu.reset()
                     self.menu.enter()
-                if e.key == pygame.K_ESCAPE:
-                    self.switch_to_prev_mode()
+                # if e.key == pygame.K_ESCAPE:
+                #     self.switch_to_prev_mode()
             if e.type == DISPLAY_SUBTITLE:
                 try:
                     pos = e.pos

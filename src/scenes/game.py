@@ -53,13 +53,10 @@ class Game(Scene):
         )
         self.water = water
         self.surf = None
-
+        GAMESTATS.reset()
         # self.scale = wall_scale
         # self.left = LoopingSpriteSheet(get_path('images', 'wall', 'left-wall.png'), 1, 1, 1, scale=wall_scale)
         # self.right = LoopingSpriteSheet(get_path('images', 'wall', 'right-wall.png'), 1, 1, 1, scale=wall_scale)
-
-    def enter(self):
-        pass
 
     def get_level_config(self, level):
         config = {

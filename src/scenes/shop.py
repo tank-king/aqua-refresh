@@ -6,6 +6,7 @@ from src.engine.objects import ObjectManager
 from src.engine.scene import Scene
 from src.engine.ui import *
 from src.objects.bubble import Bubble
+from src.objects.score_text import ScoreText
 
 
 class Powerup(BaseObject):
@@ -25,6 +26,9 @@ class Powerup(BaseObject):
     def use(self):
         if self.action:
             self.action()
+            self.object_manager.add(
+                ScoreText(150, self.pos.y + self.h / 2 - 50, -self.price)
+            )
 
     def buy(self):
         if GAMESTATS.MONEY >= self.price:
@@ -74,9 +78,11 @@ class Shop(Scene):
                     lambda: GAMESTATS.decrease_pollution(20)),
             Powerup('Purifier', 'powerup3.png',
                     'cleans upto 20 garbage lying on bottom of water body and reduces pollution by 10%', 200,
-                    purifier),
+                    lambda: purifier()),
             # Powerup('Fountain', 'powerup4.png', 'improves oxygen supply and increases vegetation', 1500),
         ]
+        for i in self.powerups:
+            i.object_manager = self.object_manager
 
         self.index = 0
 

@@ -3,6 +3,7 @@ import pygame.mouse
 from src.engine.objects import BaseObject
 from src.engine.config import *
 from src.engine.utils import *
+from src.objects.score_text import ScoreText
 
 
 class GarbageBin(BaseObject):
@@ -67,6 +68,9 @@ class GarbageBin(BaseObject):
         return text(self.label_text, size=self.text_size, bg_color='#511309')
 
     def sell_items(self):
+        self.object_manager.add(
+            ScoreText(self.pos.x - 150, self.pos.y + 25, self.worth)
+        )
         self.post_event(ADD_MONEY, money=self.worth)
         self.worth = 0
         self.items = []
