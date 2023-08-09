@@ -71,13 +71,13 @@ class Shop(Scene):
             GAMESTATS.decrease_pollution(10)
 
         self.powerups = [
-            Powerup('Cleanser', 'powerup1.png', 'Decreases pollution by 10%', 50,
+            Powerup('Cleanser', 'powerup1.png', 'Decreases pollution by 10%', 40,
                     lambda: GAMESTATS.decrease_pollution(10)),
             Powerup('Hydrogen Peroxide', 'powerup2.png',
-                    'Decreases pollution by 20%', 100,
+                    'Decreases pollution by 20%', 60,
                     lambda: GAMESTATS.decrease_pollution(20)),
             Powerup('Purifier', 'powerup3.png',
-                    'cleans upto 20 garbage lying on bottom of water body and reduces pollution by 10%', 200,
+                    'cleans upto 20 garbage lying on bottom of water body and reduces pollution by 10%', 150,
                     lambda: purifier()),
             # Powerup('Fountain', 'powerup4.png', 'improves oxygen supply and increases vegetation', 1500),
         ]
